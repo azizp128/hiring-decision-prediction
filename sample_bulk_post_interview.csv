@@ -1,0 +1,6 @@
+Age,Gender,RecruitmentStrategy,EducationLevel,ExperienceYears,PreviousCompanies,DistanceFromCompany,InterviewScore,SkillScore,PersonalityScore
+28,Male,Walk-in or offline,Diploma/Bachelor,4,2,10,40,60,10
+35,Female,"Online platform (LinkedIn, Job Portal)",High School,1,8,3,90,60,90
+24,Male,Headhunter/Agency,Master,2,1,5,70,40,100
+30,Female,"Online platform (LinkedIn, Job Portal)",Post Graduate,15,5,2,60,40,55
+40,Male,Walk-in or offline,Diploma/Bachelor,10,4,12,50,70,87

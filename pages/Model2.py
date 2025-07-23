@@ -4,7 +4,7 @@ import pandas as pd
 import joblib
 import os
 
-def show():
+def show_post_pred():
     st.image("hiresight.png", caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto", use_container_width=False)
     st.set_page_config(page_title='HR Recruitment Post-Interview Prediction', layout='centered')
 
@@ -21,7 +21,7 @@ def show():
 
     # === Left Column: About Study ===
     with col1:
-        
+        st.header("📘 About the Study")
         st.write("""
         This project aims to support HR decision-making by predicting whether a candidate 
         is suitable for post-interview evaluation. The prediction is based on several features:
@@ -42,7 +42,7 @@ def show():
 
     # === Right Column: Input ===
     with col2:
-        st.header("Candidate Profile Input")
+        st.header("👤 Candidate Profile Input")
 
         Age = st.number_input("Age", min_value=18, max_value=65, step=1)
         Gender = st.selectbox(
@@ -107,3 +107,87 @@ def show():
 
         if st.button("Predict"):
             predict()
+
+    # === Bulk Upload ===
+    st.header("📂 Bulk Prediction (CSV Upload)")
+
+    uploaded_file = st.file_uploader("Upload Candidate Data (.csv)", type=["csv"], key="post_file_upload")
+
+    if uploaded_file is not None:
+        try:
+            df_bulk = pd.read_csv(uploaded_file)
+
+            st.subheader("Preview of Uploaded Data")
+            st.dataframe(df_bulk.head())
+
+            # --- Bulk Preprocessing ---
+            def bulk_preprocess(df):
+                df_processed = df.copy()
+
+                # Required columns
+                required_columns = [
+                    'Age', 'Gender', 'RecruitmentStrategy', 'EducationLevel',
+                    'ExperienceYears', 'PreviousCompanies', 'DistanceFromCompany',
+                    'InterviewScore', 'SkillScore', 'PersonalityScore'
+                ]
+                
+                # Check for missing columns
+                missing_cols = set(required_columns) - set(df_processed.columns)
+                if missing_cols:
+                    raise ValueError(f"Missing required columns in uploaded CSV: {missing_cols}")
+
+                # Keep only required columns
+                df_processed = df_processed[required_columns]
+
+                # Normalize Gender
+                df_processed['Gender'] = df_processed['Gender'].apply(
+                    lambda x: 'Male' if str(x).strip().lower() == 'male' else 'Female'
+                )
+
+                # Normalize Recruitment Strategy
+                recruitment_map = {
+                    'Headhunter/Agency': 'Headhunter/Agency',
+                    'Online platform (LinkedIn, Job Portal)': 'Online platform (LinkedIn, Job Portal)',
+                    'Walk-in or offline': 'Walk-in or offline'
+                }
+                df_processed['RecruitmentStrategy'] = df_processed['RecruitmentStrategy'].map(recruitment_map)
+
+                # Filter valid education levels
+                valid_education_levels = ['High School', 'Diploma/Bachelor', 'Master', 'Post Graduate']
+                df_processed = df_processed[df_processed['EducationLevel'].isin(valid_education_levels)]
+
+                # Optional: drop rows with any NaN values
+                df_processed = df_processed.dropna()
+
+                return df_processed
+
+
+            df_input = bulk_preprocess(df_bulk)
+
+            # --- Prediction ---
+            with st.spinner("Processing and predicting..."):
+                predictions = model.predict(df_input)
+                df_bulk['Prediction'] = ["Hired" if pred == 1 else "Not Hired" for pred in predictions]
+
+                # Store results in session state
+                st.session_state['post_predictions'] = df_bulk
+
+            # --- Show and Download ---
+            st.success("Bulk Post-Interview Prediction Completed ✅")
+            st.subheader("📊 Prediction Results")
+            st.dataframe(df_bulk)
+
+            # Convert to CSV
+            csv = df_bulk.to_csv(index=False).encode('utf-8')
+            st.download_button(
+                label="📥 Download Results as CSV",
+                data=csv,
+                file_name='bulk_post_inteview_predictions.csv',
+                mime='text/csv',
+            )
+        except Exception as e:
+            st.error(f"Error processing file: {e}")
+
+    elif "post_predictions" in st.session_state:
+        st.subheader("📊 Last Bulk Prediction")
+        st.dataframe(st.session_state["post_predictions"])

@@ -1,0 +1,6 @@
+Age,Gender,RecruitmentStrategy,EducationLevel,ExperienceYears,PreviousCompanies,DistanceFromCompany
+28,Male,Walk-in or offline,Diploma/Bachelor,4,2,10
+35,Female,"Online platform (LinkedIn, Job Portal)",High School,1,8,3
+24,Male,Headhunter/Agency,Master,2,1,5
+30,Female,"Online platform (LinkedIn, Job Portal)",Post Graduate,15,5,2
+40,Male,Walk-in or offline,Diploma/Bachelor,10,4,12
