@@ -62,7 +62,7 @@ def show_post_pred():
         education_order = ['High School', 'Diploma/Bachelor', 'Master', 'Post Graduate']
         EducationLevel = st.selectbox("Education Level", options=education_order)
         ExperienceYears = st.number_input("Years of Experience", min_value=0, max_value=15, step=1)
-        PreviousCompanies = st.number_input("Number of Previous Companies Worked At", min_value=1, max_value=5, step=1)
+        PreviousCompanies = st.number_input("Number of Previous Companies Worked At", min_value=0, max_value=5, step=1)
         DistanceFromCompany = st.number_input("Distance from Company (in km)", min_value=0, max_value=55, step=1)
         InterviewScore = st.slider("Interview Score (1–100)", min_value=0, max_value=100, step=1)
         SkillScore = st.slider("Skill Assessment Score (1–100)", min_value=0, max_value=100, step=1)
