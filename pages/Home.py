@@ -1,11 +1,4 @@
 import streamlit as st
-import pandas as pd
-
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
-from sklearn.ensemble import RandomForestClassifier
-
 
 def show():
     st.image("hiresight.png", caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto", use_container_width=False)
@@ -14,4 +7,15 @@ def show():
     st.text("A data-driven HR consulting firm that leverages machine learning to optimize recruitment. By utilizing historical candidate data, We support more accurate, objective, and efficient hiring decisions.")
     
     st.title("Project Overview")
-    st.text("This project aims to support HR decision-making by predicting whether a candidate is suitable for pre-interview shortlisting. The prediction is based on several features:\n")
+    st.text("""This project aims to enhance HR decision-making by predicting candidate suitability 
+            for shortlisting and final hiring using machine learning. Leveraging a simulated recruitment 
+            dataset of 1,500 candidates, the model analyzes features such as education, experience, test 
+            scores, and recruitment strategies.
+
+            Two predictive models were developed:
+            - Pre-Interview Model (Random Forest): Screens candidates early with an F1-score of 0.855
+            - Post-Interview Model (XGBoost): Assists final decisions with an F1-score of 0.906
+
+            Key engineered features and SHAP-based explainability improve transparency and fairness. 
+            The solution reduces manual screening time, minimizes cost per hire, and increases hiring quality—streamlined 
+            through a deployed Streamlit app for real-time use by recruiters.""")
