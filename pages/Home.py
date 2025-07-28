@@ -12,8 +12,8 @@ def show():
     This project aims to enhance HR decision-making by predicting candidate suitability for shortlisting and final hiring using machine learning. Leveraging a simulated recruitment dataset of 1,500 candidates, the model analyzes features such as education, experience, test scores, and recruitment strategies.
 
     Two predictive models were developed:
-    - Pre-Interview Model (Random Forest): Screens candidates early with an F1-score of 0.855
-    - Post-Interview Model (XGBoost): Assists final decisions with an F1-score of 0.906
+    - Pre-Interview Model (Decision Tree): Screens candidates early with an F1-score of 0.814
+    - Post-Interview Model (XGBoost): Assists final decisions with an F1-score of 0.900
 
     Key engineered features and SHAP-based explainability improve transparency and fairness. The solution reduces manual screening time, minimizes cost per hire, and increases hiring quality—streamlined through a deployed Streamlit app for real-time use by recruiters.
     """)

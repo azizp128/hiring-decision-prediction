@@ -63,10 +63,10 @@ def show_pre_pred():
 
     @st.cache_resource
     def load_model():
-        model_path = os.path.join(os.path.dirname(__file__), 'model_1.pkl')
+        model_path = os.path.join(os.path.dirname(__file__), 'shortlisting_model.pkl')
         return joblib.load(model_path)
 
-    model = load_model()
+    model = load_model()['pipeline']
 
     st.title(":orange[HR Recruitment Pre-Interview Prediction]")
 

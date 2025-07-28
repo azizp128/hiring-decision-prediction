@@ -63,10 +63,10 @@ def show_post_pred():
 
     @st.cache_resource
     def load_model():
-        model_path = os.path.join(os.path.dirname(__file__), 'model_2.pkl')
+        model_path = os.path.join(os.path.dirname(__file__), 'hiring_model.pkl')
         return joblib.load(model_path)
 
-    model = load_model()
+    model = load_model()['pipeline']
 
     st.title(":orange[HR Recruitment Post-Interview Prediction]")
 
