@@ -17,7 +17,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-from pages import Home, Model1, Model2
+from pages import home, hiring_model, shortlisting_model
 
 # Set page configuration to remove default sidebar
 def main():
@@ -38,11 +38,11 @@ def main():
     st.session_state["last_page"] = page
 
     if page == "Home":
-        Home.show()
+        home.show()
     elif page == "Pre-Interview Model":
-        Model1.show_pre_pred()
+        shortlisting_model.show_pre_pred()
     elif page == "Post-Interview Model":
-        Model2.show_post_pred()
+        hiring_model.show_post_pred()
 
 if __name__ == "__main__":
     main()
