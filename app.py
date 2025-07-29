@@ -1,6 +1,7 @@
 import streamlit as st
-# CSS to hide the default sidebar (replace with the actual class or ID)
+from pages import home, hiring_model, shortlisting_model
 
+# CSS to hide the default sidebar (replace with the actual class or ID)
 st.markdown("""
 <style>
 .st-emotion-cache-79elbk {
@@ -17,7 +18,12 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-from pages import home, hiring_model, shortlisting_model
+# Set page configuration
+st.set_page_config(
+    page_title="Hiresight Hiring Decision Prediction",
+    layout="centered",
+    initial_sidebar_state="auto"
+)
 
 # Set page configuration to remove default sidebar
 def main():

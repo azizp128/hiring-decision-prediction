@@ -149,14 +149,14 @@ def show_post_pred():
             return pd.DataFrame(row, columns=columns)
 
         def predict():
-            # Step 1: Get user input
+            # Get user input
             X_input = preprocess_input(
                 Age, Gender, RecruitmentStrategy, EducationLevel, ExperienceYears,
                 PreviousCompanies, DistanceFromCompany, InterviewScore, SkillScore, PersonalityScore
             )
 
             with st.spinner("Evaluating candidate..."):
-                # Step 2: Predict using the full pipeline
+                # Predict using the full pipeline
                 prediction = model.predict(X_input)[0]
                 proba = model.predict_proba(X_input)[0][1]
                 
@@ -218,14 +218,14 @@ def show_post_pred():
                     """)
                 
                 st.markdown("---")
-                # Step 3: Get transformed input for SHAP (only)
+                # Get transformed input for SHAP (only)
                 try:
                     preprocessor = model.named_steps['preprocessor']
                     classifier = model.named_steps['classifier']
 
                     X_transformed = preprocessor.transform(X_input)
 
-                    # Step 4: Run SHAP
+                    # Run SHAP
                     explainer = shap.TreeExplainer(classifier)
                     shap_values = explainer.shap_values(X_transformed)
 
@@ -347,7 +347,7 @@ def show_post_pred():
                         st.markdown(f"{emoji} **{feature_name}**: {contribution_type} likelihood by `{shap_val:.4f}`")
 
                     st.markdown("---")
-                    # Optional: Show a summary of the candidate's profile
+                    #  Show a summary of the candidate's profile
                     st.markdown("### 👤 Candidate Profile Summary")
                     st.markdown(f"- **Age**: {Age} years old")
                     st.markdown(f"- **Gender**: {input_values['Gender']}")
