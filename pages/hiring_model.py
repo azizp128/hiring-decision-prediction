@@ -373,6 +373,20 @@ def show_post_pred():
 
     uploaded_file = st.file_uploader("Upload Candidate Data (.csv)", type=["csv"], key="post_file_upload")
 
+    # Sample data for preview
+    st.subheader("📄 Sample Data Format")
+    df_sample_post = pd.read_csv(os.path.join(os.path.dirname(__file__), '../sample-data/sample_bulk_post_interview.csv'))
+    st.dataframe(df_sample_post.head(5))  # Show only first 5 rows for preview
+
+    # Download button for sample data
+    csv = df_sample_post.to_csv(index=False).encode('utf-8')
+    st.download_button(
+        label="📥 Download Sample Data",
+        data=csv,
+        file_name='sample_bulk_post_interview.csv',
+        mime='text/csv',
+    )
+
     if uploaded_file is not None:
         try:
             df_bulk = pd.read_csv(uploaded_file)
