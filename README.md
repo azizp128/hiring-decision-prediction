@@ -20,4 +20,4 @@ Both models were enhanced with feature engineering, SHAP explainability, and cla
 - Visualization: Matplotlib, Seaborn
 
 # 📎 Demo
-- Streamlit App: [Hiresight Hiring Decision Prediction](hiresight-hiring-decision-prediction.streamlit.app)
+- Streamlit App: [Hiresight Hiring Decision Prediction](https://hiresight-hiring-decision-prediction.streamlit.app/)
