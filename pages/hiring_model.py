@@ -173,7 +173,7 @@ def show_post_pred():
             # Main decision with styling
             st.markdown(f"""
             <div style="text-align: center; padding: 20px; border-radius: 10px; background-color: rgba(128,128,128,0.1); margin: 10px 0;">
-                <h2 style="color: {decision_color}; margin: 0;">{decision_emoji} {decision_text}</h2>
+                <h4 style="color: {decision_color}; margin: 0;">{decision_emoji} {decision_text}</h4>
                 <p style="font-size: 18px; margin: 10px 0;">{description}</p>
                 <p style="color: {confidence_color}; font-weight: bold; margin: 5px 0;">{confidence_emoji} {confidence_level}</p>
                 <p style="font-style: italic; color: gray; margin: 5px 0;">Recommendation: {action_text}</p>
