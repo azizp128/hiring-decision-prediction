@@ -9,7 +9,7 @@ We built two predictive models:
 Both models were enhanced with feature engineering, SHAP explainability, and class balancing (RandomOverSampler). The tool predicts hiring outcomes based on candidate attributes, helping HR teams prioritize the right applicants.
 
 # 📂 Dataset
-- 1,500 rows × 13 columns
+- 1,500 rows × 11 columns
 - Features: Demographics, Education, Experience, Scores, Distance, etc.
 - Pre-Interview Target: Shortlisted (1 = Shortlisted, 0 = Not Shortlisted)
 - Post-Interview Target: HiringDecision (1 = Hired, 0 = Not Hired)
