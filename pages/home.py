@@ -224,7 +224,6 @@ def show():
             <ul>
                 <li>🔀 <strong>Feature Engineering:</strong> Sophisticated data transformation</li>
                 <li>🎯 <strong>SHAP Explainability:</strong> Transparent AI decisions</li>
-                <li>⚖️ <strong>Bias Mitigation:</strong> Fair and ethical hiring practices</li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
@@ -236,7 +235,6 @@ def show():
             <ul>
                 <li>📱 <strong>Streamlit App:</strong> User-friendly interface</li>
                 <li>⚡ <strong>Real-time Predictions:</strong> Instant candidate evaluation</li>
-                <li>📊 <strong>Interactive Dashboards:</strong> Comprehensive analytics</li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
