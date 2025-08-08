@@ -11,7 +11,7 @@ Both models were enhanced with feature engineering, SHAP explainability, and cla
 # 📂 Dataset
 - 1,500 rows × 11 columns
 - Features: Demographics, Education, Experience, Scores, Distance, etc.
-- Pre-Interview Target: Shortlisted (1 = Shortlisted, 0 = Not Shortlisted)
+- Pre-Interview Target: ShortlistingDecision (1 = Shortlisted, 0 = Not Shortlisted)
 - Post-Interview Target: HiringDecision (1 = Hired, 0 = Not Hired)
 
 # 🛠 Tools
