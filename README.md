@@ -1,5 +1,5 @@
 # 🔍 Problem Statement
-The recruitment process faces significant cost and time inefficiencies, with 69% of applicants ultimately identified as low-fit, despite undergoing structured assessments and interviews. This highlights gaps in both early-stage screening and final hiring decisions. To address this, we propose predictive models that improve the quality of candidate shortlisting and hiring outcomes—ensuring that suitable candidates are prioritized from the start and retained through to successful hires.
+The recruitment process faces significant cost and time inefficiencies, with 69% of applicants ultimately identified as less suitable hires, despite undergoing structured assessments and interviews. This highlights gaps in both early-stage screening and final hiring decisions. To address this, we propose predictive models that improve the quality of candidate shortlisting and hiring outcomes—ensuring that suitable candidates are prioritized from the start and retained through to successful hires.
 
 # 🎯 Solution
 We built two predictive models:
