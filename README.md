@@ -11,7 +11,7 @@ Both models were enhanced with feature engineering, SHAP explainability, and cla
 # 📂 Dataset
 - 1,500 rows × 11 columns
 - Features: Demographics, Education, Experience, Scores, Distance, etc.
-- Pre-Interview Target: Shortlisted (1 = Shortlisted, 0 = Not Shortlisted)
+- Pre-Interview Target: ShortlistingDecision (1 = Shortlisted, 0 = Not Shortlisted)
 - Post-Interview Target: HiringDecision (1 = Hired, 0 = Not Hired)
 
 # 🛠 Tools
@@ -21,3 +21,10 @@ Both models were enhanced with feature engineering, SHAP explainability, and cla
 
 # 📎 Demo
 - Streamlit App: [Hiresight Hiring Decision Prediction](https://hiresight-hiring-decision-prediction.streamlit.app/)
+
+# 🚀 Improvement
+Features used in the **Pre-Interview** model training process should ideally not be included in the feature set for the **Post-Interview** model training. Why? Because these features are only required for the initial candidate screening process (Pre-Interview). The Post-Interview model should be trained using features that are more relevant to assessing the candidate’s quality after the interview stage, such as **PersonalityScore, InterviewScore, SkillScore, CommunicationScore, ProblemSolvingScore, CulturalFitScore, LeadershipPotential,** or **TechnicalAssessmentResult**.
+
+However, in this project, the dataset used is a dummy dataset, and we were not able to obtain additional data from stakeholders. Therefore, all features from the Pre-Interview stage were still included in the Post-Interview model training process. This was done to help the model capture patterns in the dataset more effectively, compared to training it using only features such as PersonalityScore, InterviewScore, and SkillScore.
+
+This recommendation can serve as an improvement for similar projects in the future, ensuring that features for the Pre-Interview and Post-Interview stages are separated in accordance with best practices.
