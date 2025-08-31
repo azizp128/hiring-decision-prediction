@@ -6,7 +6,9 @@ We built two predictive models:
 - **Pre-Interview Model (Decision Tree)**: Screens candidates early with an F1-score of 0.814.
 - **Post-Interview Model (XGBoost)**: Assists final decisions with an F1-score of 0.900.
 
-Both models were enhanced with feature engineering, SHAP explainability, and class balancing (RandomOverSampler). The tool predicts hiring outcomes based on candidate attributes, helping HR teams prioritize the right applicants.
+Both models were enhanced with feature engineering, SHAP explainability, and class balancing (RandomOverSampler). The tool predicts hiring outcomes based on candidate attributes, helping HR teams prioritize the right applicants and helps companies screen candidates more efficiently, reduce less suitable hires by ~70%, and save up to IDR 416M in hiring costs.
+
+[View the full project report PDF here](https://docs.google.com/viewer?url=https://raw.githubusercontent.com/azizp128/hiring-decision-prediction/refs/heads/main/report/ppt_report.pdf)
 
 # 📂 Dataset
 - 1,500 rows × 11 columns
